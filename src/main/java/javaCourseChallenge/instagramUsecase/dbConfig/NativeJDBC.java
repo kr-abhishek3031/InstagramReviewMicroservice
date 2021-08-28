@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class NativeJDBC {
@@ -36,8 +38,13 @@ public class NativeJDBC {
              PreparedStatement ps = connection.prepareStatement(SqlStatements.SELECT);) {
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
+            List<InstagramReview> list = new ArrayList<>();
+            while(rs.next()){
+                InstagramReview temp = retrieveReview(rs);
+                list.add(temp);
+            }
             review = retrieveReview(rs);
-            return review;
+            return list.get(0);
 
         } catch (Exception throwables) {
             throwables.printStackTrace();
