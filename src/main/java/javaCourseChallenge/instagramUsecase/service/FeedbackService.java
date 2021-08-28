@@ -11,7 +11,6 @@ public class FeedbackService {
     @Autowired
     InstaReviewsDaoImplementation feedbackFunctions;
 
-
     public boolean addReview(InstagramReview review) {
         boolean temp = feedbackFunctions.addReview(review);
         return temp;

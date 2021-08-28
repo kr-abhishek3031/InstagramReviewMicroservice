@@ -21,7 +21,7 @@ public class NativeJDBC {
             int i = ps.executeUpdate();
 
             if(i == 1) {
-                System.out.println("Product Record successfully added");
+                System.out.println("Review successfully added");
                 return true;
             }
         } catch (SQLException ex) {

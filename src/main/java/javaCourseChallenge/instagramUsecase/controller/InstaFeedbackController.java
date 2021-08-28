@@ -50,7 +50,7 @@ public class InstaFeedbackController {
         }
     }
 
-    @DeleteMapping("/deleteProduct/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteById(@PathVariable("id") Long id){
         boolean out = feedbackService.deleteReview(id);
         if(out){
